@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">eClip</string>
+    <string name="fab_add_card_title">Add card</string>
 </resources>

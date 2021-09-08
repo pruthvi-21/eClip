@@ -3,4 +3,5 @@
     <color name="color_primary">#3F51B5</color>
     <color name="color_secondary">#CDDC39</color>
     <color name="color_surface">#FAFAFA</color>
+    <color name="color_surface_variant">#FFFFFF</color>
 </resources>
