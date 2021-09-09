@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ps.eclip.activities.HomeActivity">
+    tools:context=".activities.EnterCardDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         style="@style/AppBarStyle"
@@ -18,19 +18,8 @@
             android:layout_height="?actionBarSize"
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
-            app:title="@string/app_name" />
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_chevron_left"
+            app:title="@string/enter_card_details_toolbar_title" />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab_add_card"
-        style="@style/FABStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:onClick="openAddCardPage"
-        android:text="@string/fab_add_card_title"
-        app:icon="@android:drawable/ic_input_add" />
-
-</RelativeLayout>
+</LinearLayout>
