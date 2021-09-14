@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_height="200dp"
+    tools:layout_width="343dp">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8f102a"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".94" />
+
+        <com.ps.eclip.views.card.FixedSizeTextView
+            android:id="@+id/card_issuer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:text_color="primary"
+            app:text_size="medium"
+            tools:text="HDFC bank" />
+
+        <com.ps.eclip.views.card.FixedSizeTextView
+            android:id="@+id/card_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:text_color="primary"
+            app:text_size="small"
+            tools:text="Debit" />
+
+        <LinearLayout
+            android:id="@+id/card_num_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="@id/guideline_top">
+
+            <com.ps.eclip.views.card.FixedSizeTextView
+                android:id="@+id/card_number_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emv_card_holder_label"
+                app:text_color="secondary"
+                app:text_size="small" />
+
+            <com.ps.eclip.views.card.FixedSizeTextView
+                android:id="@+id/card_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="19"
+                app:text_color="primary"
+                app:text_size="large"
+                tools:text="1234 XXXX XXXX 5678" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expiry_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toStartOf="@id/guideline_start">
+
+            <com.ps.eclip.views.card.FixedSizeTextView
+                android:id="@+id/expiry_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emv_expiry_label"
+                app:text_color="secondary"
+                app:text_size="small" />
+
+            <com.ps.eclip.views.card.FixedSizeTextView
+                android:id="@+id/expiry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:text_color="primary"
+                app:text_size="medium"
+                tools:text="12/25" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/card_scheme_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end">
+
+            <com.ps.eclip.views.card.FixedCardSchemeView
+                android:id="@+id/card_scheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="bottom"
+                tools:srcCompat="@drawable/ic_mastercard" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_height="200dp"
+    tools:layout_width="343dp">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8f102a"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/card_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/emv_back" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_cvv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".79" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_cvv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".93" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_cvv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".42" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_cvv_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".64" />
+
+        <com.ps.eclip.views.card.FixedSizeTextView
+            android:id="@+id/cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/cvv_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_cvv_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_cvv_start"
+            app:layout_constraintTop_toTopOf="@id/guideline_cvv_top"
+            app:text_size="small"
+            tools:text="123" />
+
+        <com.ps.eclip.views.card.FixedSizeTextView
+            android:id="@+id/cvv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/emv_cvv_label"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_cvv_bottom"
+            app:layout_constraintEnd_toEndOf="@id/guideline_cvv_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_cvv_start"
+            app:layout_constraintTop_toBottomOf="@id/cvv"
+            app:text_color="secondary"
+            app:text_size="small" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

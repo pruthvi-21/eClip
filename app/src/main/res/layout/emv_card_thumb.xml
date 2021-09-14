@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_container"
+        android:layout_width="280dp"
+        android:layout_height="163.26dp"
+        android:fontFamily="@font/cc_regular"
+        app:cardCornerRadius="18dp">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#8f102a"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/gradient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/card_issuer_name"
+                style="@style/EMVCardTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.08"
+                android:textAllCaps="true"
+                android:textSize="@dimen/emv_card_thumb_bank_name_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="HDFC" />
+
+            <TextView
+                android:id="@+id/card_type"
+                style="@style/EMVCardLabelStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Debit" />
+
+            <LinearLayout
+                android:id="@+id/card_num_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/card_number_label"
+                    style="@style/EMVCardLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emv_card_holder_label" />
+
+                <TextView
+                    android:id="@+id/card_num"
+                    style="@style/EMVCardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="19"
+                    tools:text="12XX XXXX XXXX XX78" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expiry_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/expiry_label"
+                    style="@style/EMVCardLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emv_expiry_label" />
+
+                <TextView
+                    android:id="@+id/expiry"
+                    style="@style/EMVCardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cc_regular"
+                    tools:text="1X/X4" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/card_scheme_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/card_scheme"
+                    android:layout_width="@dimen/emv_card_thumb_scheme_size"
+                    android:layout_height="@dimen/emv_card_thumb_scheme_size"
+                    android:contentDescription="@null"
+                    android:foregroundGravity="bottom"
+                    tools:srcCompat="@drawable/ic_mastercard" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/card_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/text_color_primary"
+        tools:text="Hdfc credit" />
+</LinearLayout>

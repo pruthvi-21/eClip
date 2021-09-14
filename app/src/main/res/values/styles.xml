@@ -10,4 +10,19 @@
         <item name="backgroundTint">@color/color_primary</item>
         <item name="iconTint">#FFFFFF</item>
     </style>
+
+    <style name="EMVCardLabelStyle">
+        <item name="android:fontFamily">@font/cc_regular</item>
+        <item name="android:textSize">@dimen/emv_card_thumb_label_size</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+    </style>
+
+    <style name="EMVCardTextStyle">
+        <item name="android:fontFamily">@font/cc_regular</item>
+        <item name="android:textSize">@dimen/emv_card_thumb_text_size</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:letterSpacing">0.2</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+    </style>
 </resources>

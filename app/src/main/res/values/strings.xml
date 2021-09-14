@@ -2,6 +2,12 @@
     <string name="app_name">eClip</string>
     <string name="fab_add_card_title">Add card</string>
 
-    <string name="scan_card_toolbar_title">Scan a card</string>
     <string name="enter_card_details_toolbar_title">Enter card details</string>
+
+    <!-- EMV Card strings -->
+    <string name="emv_card_holder_label">Card number</string>
+    <string name="emv_expiry_label">Expiry</string>
+    <string name="emv_cvv_label">cvv</string>
+    <string name="show_cvv">Show cvv</string>
+    <string name="hide_cvv">Hide cvv</string>
 </resources>

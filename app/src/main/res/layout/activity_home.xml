@@ -21,6 +21,11 @@
             app:title="@string/app_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.ps.eclip.views.card.EMVCardThumb
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_add_card"
         style="@style/FABStyle"

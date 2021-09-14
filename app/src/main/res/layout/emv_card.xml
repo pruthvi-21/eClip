@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ViewFlipper
+        android:id="@+id/card_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/emv_card_padding_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.ps.eclip.views.card.EMVCardFront
+            android:id="@+id/card_front"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <com.ps.eclip.views.card.EMVCardBack
+            android:id="@+id/card_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </ViewFlipper>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".90" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/show_cvv"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_cvv"
+        android:textSize="@dimen/show_cvv_btn_text_size"
+        app:layout_constraintEnd_toEndOf="@id/guide_85"
+        app:layout_constraintTop_toBottomOf="@id/card_flipper" />
+</androidx.constraintlayout.widget.ConstraintLayout>
