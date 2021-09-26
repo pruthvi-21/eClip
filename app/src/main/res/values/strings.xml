@@ -4,10 +4,26 @@
 
     <string name="enter_card_details_toolbar_title">Enter card details</string>
 
-    <!-- EMV Card strings -->
+    <!-- EMV Card -->
     <string name="emv_card_holder_label">Card number</string>
     <string name="emv_expiry_label">Expiry</string>
     <string name="emv_cvv_label">cvv</string>
     <string name="show_cvv">Show cvv</string>
     <string name="hide_cvv">Hide cvv</string>
+
+    <!-- Card details form -->
+    <string name="form_card_holder_name_label">Card holder name</string>
+    <string name="form_card_number_label">Card number</string>
+    <string name="form_card_expiry_label">Card expiry</string>
+    <string name="form_expiry_hint">MM/YY</string>
+    <string name="form_cvv_label">CVV</string>
+    <string name="form_card_type">Card type</string>
+    <string name="form_card_type_debit">Debit</string>
+    <string name="form_card_type_credit">Credit</string>
+    <string name="form_card_expiry_dialog_title">Select card expiry date</string>
+
+    <!-- General -->
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="save">Save</string>
 </resources>

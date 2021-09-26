@@ -6,4 +6,5 @@
     <dimen name="emv_card_thumb_text_size">13.8sp</dimen>
     <dimen name="emv_card_thumb_bank_name_size">12sp</dimen>
     <dimen name="emv_card_thumb_scheme_size">44.89dp</dimen>
+    <dimen name="card_save_btn_width">250dp</dimen>
 </resources>

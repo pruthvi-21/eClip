@@ -5,12 +5,17 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.3041025641025641" />
         <entry key="..\:/Users/Pruthvi/AndroidStudioProjects/eClip/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/bg_rounded.xml" value="0.14675925925925926" />
         <entry key="app/src/main/res/layout/activity_enter_details.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1716485507246377" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12962962962962962" />
+        <entry key="app/src/main/res/layout/card_expiry_view.xml" value="0.22192028985507245" />
+        <entry key="app/src/main/res/layout/dialog_month_year_picker.xml" value="0.25" />
         <entry key="app/src/main/res/layout/emv_card.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/emv_card_back.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/emv_card_front.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/emv_card_thumb.xml" value="0.20108695652173914" />
+        <entry key="app/src/main/res/layout/emv_details_forms.xml" value="0.13240740740740742" />
       </map>
     </option>
   </component>

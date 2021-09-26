@@ -9,6 +9,10 @@ import androidx.core.content.getSystemService
 object Utils {
     private const val TAG = "Utils"
 
+    fun formatExpiryDate(month: Int, year: Int): String {
+        return "${String.format("%02d", month)} / ${year % 100}"
+    }
+
     fun getScreenSize(context: Context): IntArray {
         val screenSize = Point()
         context.getSystemService<DisplayManager>()!! //DisplayManager

@@ -22,4 +22,26 @@
             app:navigationIcon="@drawable/ic_chevron_left"
             app:title="@string/enter_card_details_toolbar_title" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/emv_details_forms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fab_add_card"
+            style="@style/FABStyle"
+            android:layout_width="@dimen/card_save_btn_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/save"
+            android:textSize="16sp"
+            app:cornerRadius="28dp" />
+    </FrameLayout>
 </LinearLayout>
