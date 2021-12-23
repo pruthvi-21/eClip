@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_primary">#3F51B5</color>
+    <color name="color_primary_dark">#3246B6</color>
     <color name="color_secondary">#CDDC39</color>
     <color name="color_surface">#FAFAFA</color>
     <color name="color_surface_variant">#FFFFFF</color>
+    <color name="status_bar_color">@color/color_primary_dark</color>
 
     <color name="text_color_primary">#121416</color>
     <color name="text_color_secondary">#3F474E</color>
