@@ -28,6 +28,7 @@
         android:layout_height="match_parent">
 
         <include
+            android:id="@+id/forms"
             layout="@layout/emv_details_forms"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -12,9 +12,9 @@
     <string name="hide_cvv">Hide cvv</string>
 
     <!-- Card details form -->
-    <string name="form_card_holder_name_label">Card holder name</string>
+    <string name="form_card_holder_card_label">Card label</string>
+    <string name="form_card_holder_name_label">Name on card</string>
     <string name="form_card_number_label">Card number</string>
-    <string name="form_card_expiry_label">Card expiry</string>
     <string name="form_expiry_hint">MM/YY</string>
     <string name="form_cvv_label">CVV</string>
     <string name="form_card_type">Card type</string>

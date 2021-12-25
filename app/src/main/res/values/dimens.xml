@@ -7,4 +7,10 @@
     <dimen name="emv_card_thumb_bank_name_size">12sp</dimen>
     <dimen name="emv_card_thumb_scheme_size">44.89dp</dimen>
     <dimen name="card_save_btn_width">250dp</dimen>
+
+    <dimen name="card_scheme_view_height">40dp</dimen>
+    <dimen name="card_scheme_view_width">60dp</dimen>
+    <dimen name="card_scheme_view_padding_vertical">5dp</dimen>
+    <dimen name="card_scheme_view_padding_horizontal">8dp</dimen>
+    <dimen name="color_preview_size">30dp</dimen>
 </resources>

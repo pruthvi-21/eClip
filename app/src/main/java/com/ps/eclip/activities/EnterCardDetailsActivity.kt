@@ -4,19 +4,90 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.widget.addTextChangedListener
 import com.ps.eclip.R
+import com.ps.eclip.dao.AppDatabase
+import com.ps.eclip.dao.AppExecutors
+import com.ps.eclip.databinding.ActivityEnterDetailsBinding
+import com.ps.eclip.enums.EMVCardType
+import com.ps.eclip.enums.EmvCardScheme
+import com.ps.eclip.models.EMVCard
+import com.ps.eclip.utils.CardSchemeValidator
 
 class EnterCardDetailsActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivityEnterDetailsBinding.inflate(layoutInflater) }
+    private val database by lazy { AppDatabase.getInstance(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_enter_details)
+        setContentView(binding.root)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        binding.forms.cardNumberLayout.editText?.addTextChangedListener {
+            val scheme = CardSchemeValidator.validate(it?.toString())
+            updateCardIcon(scheme)
+        }
+
+        binding.fabAddCard.setOnClickListener {
+            val card = getCardDetails()
+            card?.let {
+                saveCardDetails(card)
+            }
+        }
+    }
+
+    private fun updateCardIcon(scheme: EmvCardScheme) {
+        binding.forms.cardNumberLayout.editText?.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            0, 0, scheme.iconRes, 0
+        )
+    }
+
+    private fun getCardDetails(): EMVCard? {
+        val cardNum: Long? = if (binding.forms.cardNumberLayout.editText!!.text.isNotBlank()) {
+            binding.forms.cardNumberLayout.editText!!.text.toString().toLong()
+        } else {
+            null
+        }
+
+        val cardHolder: String? = if (binding.forms.cardHolderLayout.editText!!.text.isNotBlank()) {
+            binding.forms.cardHolderLayout.editText!!.text.toString()
+        } else {
+            null
+        }
+
+        val cvv: Int? = if (binding.forms.cvvLayout.editText!!.text.isNotBlank()) {
+            binding.forms.cvvLayout.editText!!.text.toString().toInt()
+        } else {
+            null
+        }
+
+        val expiryMonth = binding.forms.expiryPicker.month
+        val expiryYear = binding.forms.expiryPicker.year
+        val cardType = if (binding.forms.cardTypeGroup.checkedButtonId == R.id.card_type_debit) EMVCardType.DEBIT
+        else EMVCardType.CREDIT
+
+        val cardLabel = binding.forms.cardLabelLayout.editText!!.text.toString()
+        if (cardLabel.isBlank()) {
+            binding.forms.cardLabelLayout.error = "Can't be empty"
+            return null
+        } else {
+            binding.forms.cardLabelLayout.isErrorEnabled = false
+        }
+
+        return EMVCard(cardNum, expiryMonth, expiryYear, cvv, cardType, cardHolder, cardLabel)
+    }
+
+    private fun saveCardDetails(card: EMVCard) {
+        AppExecutors.getInstance().diskIO().execute {
+            database?.bankCardDao()?.insertCard(card)
+            finish()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             onBackPressed()
             return true
         }

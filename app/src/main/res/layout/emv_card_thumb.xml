@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
@@ -54,6 +55,7 @@
                 style="@style/EMVCardLabelStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:letterSpacing="0.2"
                 android:textAllCaps="true"
                 android:textColor="@color/text_color_primary"
                 app:layout_constraintEnd_toEndOf="parent"

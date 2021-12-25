@@ -9,8 +9,19 @@ import androidx.core.content.getSystemService
 object Utils {
     private const val TAG = "Utils"
 
+    fun formatCardNumber(num: Long?): String? {
+        num ?: return null
+        val str = num.toString()
+        if (str.length < 16) return str
+        return StringBuilder(str)
+            .insert(4, " ")
+            .insert(9, " ")
+            .insert(14, " ")
+            .toString()
+    }
+
     fun formatExpiryDate(month: Int, year: Int): String {
-        return "${String.format("%02d", month)} / ${year % 100}"
+        return "${String.format("%02d", month)}/${year % 100}"
     }
 
     fun getScreenSize(context: Context): IntArray {

@@ -16,9 +16,7 @@
     <style name="Theme.HomeTheme" />
 
     <style name="Theme.FormsPageTheme">
-        <item name="android:statusBarColor">@color/color_primary_dark</item>
         <item name="textInputStyle">@style/FormFieldsLayoutStyle</item>
         <item name="editTextStyle">@style/FormFieldsStyle</item>
     </style>
-
 </resources>

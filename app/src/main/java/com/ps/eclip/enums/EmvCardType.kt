@@ -1,5 +1,5 @@
-package com.android.mycards.enums
+package com.ps.eclip.enums
 
-enum class EmvCardType {
+enum class EMVCardType {
     DEBIT, CREDIT
 }
