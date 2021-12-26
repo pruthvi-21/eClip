@@ -13,7 +13,7 @@ import com.ps.eclip.enums.EMVCardType
 import com.ps.eclip.enums.EmvCardScheme
 import com.ps.eclip.models.EMVCard
 import com.ps.eclip.models.EMVCardPreviewModel
-import com.ps.eclip.utils.CardSchemeValidator
+import com.ps.eclip.utils.CardSchemeIdentifier
 
 class EnterCardDetailsActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class EnterCardDetailsActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         binding.forms.cardNumberLayout.editText?.addTextChangedListener {
-            val scheme = CardSchemeValidator.validate(it?.toString())
+            val scheme = CardSchemeIdentifier.match(it?.toString())
             updateCardIcon(scheme)
         }
 

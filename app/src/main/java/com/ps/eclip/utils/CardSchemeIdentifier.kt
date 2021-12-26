@@ -2,9 +2,9 @@ package com.ps.eclip.utils
 
 import com.ps.eclip.enums.EmvCardScheme
 
-object CardSchemeValidator {
+object CardSchemeIdentifier {
 
-    fun validate(num: String?): EmvCardScheme {
+    fun match(num: String?): EmvCardScheme {
         num ?: return EmvCardScheme.OTHER
         if (num.matches(RUPAY_REGEX)) return EmvCardScheme.RUPAY
 

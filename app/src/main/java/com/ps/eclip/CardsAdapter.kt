@@ -1,6 +1,5 @@
 package com.ps.eclip
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ps.eclip.models.EMVCardPreviewModel
+import com.ps.eclip.utils.CardSchemeIdentifier
 import com.ps.eclip.utils.Utils
 
 class CardsAdapter(
@@ -22,22 +22,13 @@ class CardsAdapter(
         private val cardNumberPreview = itemView.findViewById<TextView>(R.id.card_num_preview)
         private val cardIcon = itemView.findViewById<ImageView>(R.id.card_icon)
 
-        @SuppressLint("SetTextI18n")
         fun bind(card: EMVCardPreviewModel) {
             cardLabel.text = card.cardLabel
             cardNumberPreview.text = Utils.formatCardNumber(card.cardNumber)
 
             val num = card.cardNumber.toString()
-            cardIcon.setImageResource(
-                when {
-                    num.startsWith("4") -> R.drawable.ic_visa
-                    num.startsWith("5") -> R.drawable.ic_mastercard
-                    num.startsWith("6") -> R.drawable.ic_rupay
-                    num.startsWith("1") -> R.drawable.ic_amex
-                    num.startsWith("2") -> R.drawable.ic_discover
-                    else -> R.drawable.ic_emv_icon
-                }
-            )
+            val scheme = CardSchemeIdentifier.match(num)
+            cardIcon.setImageResource(scheme.iconRes)
         }
     }
 
