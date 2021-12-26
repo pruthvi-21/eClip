@@ -6,10 +6,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ps.eclip.models.EMVCard
+import com.ps.eclip.models.EMVCardPreviewModel
 
-@Database(entities = [EMVCard::class], version = 1, exportSchema = false)
+@Database(entities = [EMVCard::class, EMVCardPreviewModel::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun bankCardDao(): BankCardDao?
+    abstract fun emvCardDao(): EMVCardDao?
+    abstract fun emvCardPreviewDao(): EMVCardPreviewDao?
 
     companion object {
         private const val LOG = "AppDatabase"

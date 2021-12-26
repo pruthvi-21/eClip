@@ -4,7 +4,7 @@ import androidx.room.*
 import com.ps.eclip.models.EMVCard
 
 @Dao
-interface BankCardDao {
+interface EMVCardDao {
     @Query("SELECT * FROM bank_card ORDER BY id")
     fun loadAllCards(): List<EMVCard>?
 

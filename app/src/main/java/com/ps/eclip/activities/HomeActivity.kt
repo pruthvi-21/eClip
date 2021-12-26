@@ -12,14 +12,14 @@ import com.ps.eclip.R
 import com.ps.eclip.dao.AppDatabase
 import com.ps.eclip.dao.AppExecutors
 import com.ps.eclip.databinding.ActivityHomeBinding
-import com.ps.eclip.models.EMVCard
+import com.ps.eclip.models.EMVCardPreviewModel
 
 class HomeActivity : AppCompatActivity() {
 
     private val binding: ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
     private val database by lazy { AppDatabase.getInstance(this) }
 
-    private val list = ArrayList<EMVCard>()
+    private val list = ArrayList<EMVCardPreviewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
         super.onResume()
 
         AppExecutors.getInstance().diskIO().execute {
-            database?.bankCardDao()?.loadAllCards()?.let {
+            database?.emvCardPreviewDao()?.loadAllPreviews()?.let {
                 list.clear()
                 list.addAll(it)
             }

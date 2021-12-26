@@ -12,6 +12,7 @@ import com.ps.eclip.databinding.ActivityEnterDetailsBinding
 import com.ps.eclip.enums.EMVCardType
 import com.ps.eclip.enums.EmvCardScheme
 import com.ps.eclip.models.EMVCard
+import com.ps.eclip.models.EMVCardPreviewModel
 import com.ps.eclip.utils.CardSchemeValidator
 
 class EnterCardDetailsActivity : AppCompatActivity() {
@@ -76,12 +77,31 @@ class EnterCardDetailsActivity : AppCompatActivity() {
             binding.forms.cardLabelLayout.isErrorEnabled = false
         }
 
-        return EMVCard(cardNum, expiryMonth, expiryYear, cvv, cardType, cardHolder, cardLabel)
+        return EMVCard(
+            cardNumber = cardNum,
+            expiryMonth = expiryMonth,
+            expiryYear = expiryYear,
+            cvv = cvv,
+            cardType = cardType,
+            cardHolder = cardHolder,
+            cardLabel = cardLabel
+        )
+    }
+
+    private fun generatePreview(card: EMVCard): EMVCardPreviewModel {
+        return EMVCardPreviewModel(
+            cardNumber = card.cardNumber,
+            cardType = card.cardType,
+            cardLabel = card.cardLabel
+        )
     }
 
     private fun saveCardDetails(card: EMVCard) {
+        val preview = generatePreview(card)
+
         AppExecutors.getInstance().diskIO().execute {
-            database?.bankCardDao()?.insertCard(card)
+            database?.emvCardDao()?.insertCard(card)
+            database?.emvCardPreviewDao()?.insertPreview(preview)
             finish()
         }
     }

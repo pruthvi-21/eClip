@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ps.eclip.models.EMVCard
+import com.ps.eclip.models.EMVCardPreviewModel
 import com.ps.eclip.utils.Utils
 
 class CardsAdapter(
-    private val list: List<EMVCard>
+    private val list: List<EMVCardPreviewModel>
 ) : RecyclerView.Adapter<CardsAdapter.CardsViewHolder>() {
 
     inner class CardsViewHolder(
@@ -23,7 +23,7 @@ class CardsAdapter(
         private val cardIcon = itemView.findViewById<ImageView>(R.id.card_icon)
 
         @SuppressLint("SetTextI18n")
-        fun bind(card: EMVCard) {
+        fun bind(card: EMVCardPreviewModel) {
             cardLabel.text = card.cardLabel
             cardNumberPreview.text = Utils.formatCardNumber(card.cardNumber)
 
