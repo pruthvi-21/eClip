@@ -9,7 +9,7 @@
     tools:context=".activities.ViewCardActivity">
 
     <View
-        android:layout_width="65dp"
+        android:layout_width="45dp"
         android:layout_height="5dp"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"

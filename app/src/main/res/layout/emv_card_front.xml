@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
+        android:background="@drawable/ic_emv_chip"
         android:scaleType="fitXY" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,24 +61,14 @@
             app:layout_constraintGuide_percent=".94" />
 
         <com.ps.eclip.views.card.FixedSizeTextView
-            android:id="@+id/card_issuer_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="true"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toTopOf="@id/guideline_top"
-            app:text_color="primary"
-            app:text_size="medium"
-            tools:text="HDFC bank" />
-
-        <com.ps.eclip.views.card.FixedSizeTextView
             android:id="@+id/card_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="true"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintTop_toTopOf="@id/guideline_top"
-            app:text_color="primary"
             app:text_size="small"
             tools:text="Debit" />
 
@@ -96,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/emv_card_holder_label"
-                app:text_color="secondary"
+                android:textColor="#FFFFFF"
                 app:text_size="small" />
 
             <com.ps.eclip.views.card.FixedSizeTextView
@@ -104,8 +95,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLength="19"
-                app:text_color="primary"
                 app:text_size="large"
+                android:textColor="#FFFFFF"
                 tools:text="1234 XXXX XXXX 5678" />
         </LinearLayout>
 
@@ -122,14 +113,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/emv_expiry_label"
-                app:text_color="secondary"
+                android:textColor="#FFFFFF"
                 app:text_size="small" />
 
             <com.ps.eclip.views.card.FixedSizeTextView
                 android:id="@+id/expiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:text_color="primary"
+                android:textColor="#FFFFFF"
                 app:text_size="medium"
                 tools:text="12/25" />
         </LinearLayout>

@@ -30,5 +30,6 @@ class ViewCardBottomSheet(
             binding.emvCard.setCardExpiry(card.expiryMonth!!, card.expiryYear!!)
         }
         binding.emvCard.setCardType(card.cardType)
+        binding.emvCard.setCvv(card.cvv)
     }
 }

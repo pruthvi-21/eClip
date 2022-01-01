@@ -74,6 +74,10 @@ class EMVCard @JvmOverloads constructor(
         binding.cardFront.setCardType(type)
     }
 
+    fun setCvv(cvv: Int?) {
+        binding.cardBack.setCvv(cvv)
+    }
+
     companion object {
         private const val TAG = "EMVCard"
     }

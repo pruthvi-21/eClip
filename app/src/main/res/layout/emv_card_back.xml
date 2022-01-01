@@ -73,11 +73,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/emv_cvv_label"
+            android:textColor="#FFF"
             app:layout_constraintBottom_toBottomOf="@id/guideline_cvv_bottom"
             app:layout_constraintEnd_toEndOf="@id/guideline_cvv_end"
             app:layout_constraintStart_toStartOf="@id/guideline_cvv_start"
             app:layout_constraintTop_toBottomOf="@id/cvv"
-            app:text_color="secondary"
             app:text_size="small" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

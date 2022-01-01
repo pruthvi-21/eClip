@@ -30,15 +30,6 @@ class FixedSizeTextView @JvmOverloads constructor(
                 val textSize = cardWidth * sizeFactor
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
             }
-
-            val colorOrdinal = typedArray.getInt(R.styleable.FixedSizeTextView_text_color, -1)
-            if (colorOrdinal != -1) {
-                val color = when (colorOrdinal) {
-                    0 -> ResourcesCompat.getColor(resources, R.color.text_color_primary, null) //primary
-                    else -> ResourcesCompat.getColor(resources, R.color.text_color_secondary, null) //secondary
-                }
-                setTextColor(color)
-            }
             typedArray.recycle()
         }
 

@@ -30,6 +30,11 @@ class EMVCardBack @JvmOverloads constructor(
         binding.mainContainer.radius = cardWidth * 24f / 343f
     }
 
+    fun setCvv(cvv: Int?) {
+        cvv ?: return
+        binding.cvv.text = cvv.toString()
+    }
+
     companion object {
         private const val TAG = "EMVCardBack"
     }
