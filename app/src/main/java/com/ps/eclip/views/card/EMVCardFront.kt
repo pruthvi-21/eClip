@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.ps.eclip.databinding.EmvCardFrontBinding
+import com.ps.eclip.enums.EMVCardType
+import com.ps.eclip.utils.CardSchemeIdentifier
 import com.ps.eclip.utils.Constants.EMV_CARD_RATIO
 import com.ps.eclip.utils.Utils
 
@@ -28,6 +30,24 @@ class EMVCardFront @JvmOverloads constructor(
 
         binding.mainContainer.layoutParams = LayoutParams(cardWidth.toInt(), cardHeight.toInt())
         binding.mainContainer.radius = cardWidth * 24f / 343f
+    }
+
+    fun setCardNumber(num: Long?) {
+        binding.cardNum.text = Utils.formatCardNumber(num)
+        val scheme = CardSchemeIdentifier.match(num.toString())
+        binding.cardScheme.setImageResource(scheme.logoRes)
+    }
+
+    fun setCardExpiry(str: String?) {
+        binding.expiry.text = "$str"
+    }
+
+    fun setCardExpiry(month: Int, year: Int) {
+        setCardExpiry(Utils.formatExpiryDate(month, year))
+    }
+
+    fun setCardType(type: EMVCardType) {
+        binding.cardType.text = type.name
     }
 
     companion object {

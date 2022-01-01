@@ -13,10 +13,13 @@ import com.ps.eclip.dao.AppDatabase
 import com.ps.eclip.dao.AppExecutors
 import com.ps.eclip.databinding.ActivityHomeBinding
 import com.ps.eclip.models.EMVCardPreviewModel
+import com.ps.eclip.utils.ViewCardBottomSheet
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), CardsAdapter.OnItemClickListener {
 
     private val binding: ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
+
+    private val executors by lazy { AppExecutors.getInstance() }
     private val database by lazy { AppDatabase.getInstance(this) }
 
     private val list = ArrayList<EMVCardPreviewModel>()
@@ -28,13 +31,15 @@ class HomeActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        binding.recyclerView.adapter = CardsAdapter(list)
+        binding.recyclerView.adapter = CardsAdapter(list).apply {
+            setOnItemClickListener(this@HomeActivity)
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
-        AppExecutors.getInstance().diskIO().execute {
+        executors.diskIO().execute {
             database?.emvCardPreviewDao()?.loadAllPreviews()?.let {
                 list.clear()
                 list.addAll(it)
@@ -45,6 +50,15 @@ class HomeActivity : AppCompatActivity() {
 
     fun openAddCardPage(view: View) {
         startActivity(Intent(this, EnterCardDetailsActivity::class.java))
+    }
+
+    override fun onClick(position: Int) {
+        executors.diskIO().execute {
+            database?.emvCardDao()?.getInfoWithId(list[position].id)?.let {
+                val bottomSheet = ViewCardBottomSheet(it)
+                bottomSheet.show(supportFragmentManager, "")
+            }
+        }
     }
 
     companion object {

@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.FrameLayout
 import com.ps.eclip.R
 import com.ps.eclip.databinding.EmvCardBinding
+import com.ps.eclip.enums.EMVCardType
 
 class EMVCard @JvmOverloads constructor(
     context: Context,
@@ -55,6 +56,22 @@ class EMVCard @JvmOverloads constructor(
             binding.showCvv.visibility = INVISIBLE
             binding.showCvv.setOnClickListener(null)
         }
+    }
+
+    fun setCardNumber(num: Long?) {
+        binding.cardFront.setCardNumber(num)
+    }
+
+    fun setCardExpiry(str: String?) {
+        binding.cardFront.setCardExpiry(str)
+    }
+
+    fun setCardExpiry(month: Int, year: Int) {
+        binding.cardFront.setCardExpiry(month, year)
+    }
+
+    fun setCardType(type: EMVCardType) {
+        binding.cardFront.setCardType(type)
     }
 
     companion object {

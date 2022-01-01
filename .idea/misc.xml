@@ -7,21 +7,31 @@
         <entry key="..\:/Users/Pruthvi/AndroidStudioProjects/eClip/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/bg_rounded.xml" value="0.14675925925925926" />
+        <entry key="app/src/main/res/drawable/bg_rounded_small.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/emv_back.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_amex.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_amex_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_dinersclub.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_dinersclub_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_dinnersclub.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_discover.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_discover_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_emv_card_cvv_hint_icon.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_emv_card_number_hint_icon.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_emv_icon.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_maestro.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_maestro_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_mastercard.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_mastercard_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_rupay.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_rupay_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_visa.xml" value="0.2652777777777778" />
+        <entry key="app/src/main/res/drawable/ic_visa_logo.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/ic_visa_seeklogo_com.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/layout/activity_enter_details.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12962962962962962" />
+        <entry key="app/src/main/res/layout/activity_view_card.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/layout/activity_view_card_info.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/layout/card_expiry_view.xml" value="0.22192028985507245" />
         <entry key="app/src/main/res/layout/card_scheme_layout.xml" value="0.25092592592592594" />
@@ -34,6 +44,7 @@
         <entry key="app/src/main/res/layout/emv_card_thumb_new.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/layout/emv_details_forms.xml" value="0.25" />
         <entry key="app/src/main/res/layout/sample_card.xml" value="0.25092592592592594" />
+        <entry key="app/src/main/res/layout/sheet_view_card_info.xml" value="0.25092592592592594" />
       </map>
     </option>
   </component>

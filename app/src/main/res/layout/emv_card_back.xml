@@ -12,7 +12,7 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8f102a"
+        android:background="#1976D2"
         android:contentDescription="@null" />
 
     <ImageView

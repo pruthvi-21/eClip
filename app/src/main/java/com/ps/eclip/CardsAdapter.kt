@@ -14,6 +14,12 @@ class CardsAdapter(
     private val list: List<EMVCardPreviewModel>
 ) : RecyclerView.Adapter<CardsAdapter.CardsViewHolder>() {
 
+    fun interface OnItemClickListener {
+        fun onClick(position: Int)
+    }
+
+    private var listener: OnItemClickListener? = null
+
     inner class CardsViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
@@ -22,9 +28,15 @@ class CardsAdapter(
         private val cardNumberPreview = itemView.findViewById<TextView>(R.id.card_num_preview)
         private val cardIcon = itemView.findViewById<ImageView>(R.id.card_icon)
 
+        init {
+            itemView.setOnClickListener {
+                listener?.onClick(adapterPosition)
+            }
+        }
+
         fun bind(card: EMVCardPreviewModel) {
             cardLabel.text = card.cardLabel
-            cardNumberPreview.text = Utils.formatCardNumber(card.cardNumber)
+            cardNumberPreview.text = Utils.formatCardNumberPreview(card.cardNumber)
 
             val num = card.cardNumber.toString()
             val scheme = CardSchemeIdentifier.match(num)
@@ -34,7 +46,7 @@ class CardsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.emv_card_thumb_new, parent, false)
+        val view = layoutInflater.inflate(R.layout.emv_card_thumb, parent, false)
         return CardsViewHolder(view)
     }
 
@@ -44,5 +56,9 @@ class CardsAdapter(
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
     }
 }

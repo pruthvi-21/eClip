@@ -16,4 +16,7 @@ interface EMVCardDao {
 
     @Delete
     fun removeCard(card: EMVCard)
+
+    @Query("SELECT * FROM bank_card WHERE id = :id")
+    fun getInfoWithId(id: Int?): EMVCard
 }
