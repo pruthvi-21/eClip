@@ -19,6 +19,7 @@
             android:layout_height="?actionBarSize"
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
+            app:navigationIcon="@null"
             app:title="@string/app_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
