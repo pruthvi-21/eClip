@@ -36,7 +36,7 @@ object Utils {
             EmvCardScheme.DISCOVER -> formatter.applyPattern(DISCOVER_FORMAT)
             EmvCardScheme.RUPAY -> formatter.applyPattern(RUPAY_FORMAT)
             EmvCardScheme.VISA -> formatter.applyPattern(VISA_FORMAT)
-            else -> {}
+            else -> return num.toString()
         }
         return formatter.format(num).replace(',', ' ')
     }
