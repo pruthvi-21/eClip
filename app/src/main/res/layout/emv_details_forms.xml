@@ -1,208 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:text="Card Information" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/card_number_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="creditCardNumber"
+            android:drawableEnd="@drawable/ic_emv_icon"
+            android:hint="@string/form_card_number_label"
+            android:inputType="number"
+            android:maxLength="16" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/card_holder_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/form_card_holder_name_label"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:text="Card Information" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/card_number_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="creditCardNumber"
-                android:drawableEnd="@drawable/ic_emv_icon"
-                android:hint="@string/form_card_number_label"
-                android:inputType="number"
-                android:maxLength="16" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/card_holder_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="name"
-                android:hint="@string/form_card_holder_name_label"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <com.ps.eclip.views.ExpiryPickerView
-                android:id="@+id/expiry_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minWidth="20dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cvv_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:minWidth="80dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="creditCardSecurityCode"
-                    android:hint="@string/form_cvv_label"
-                    android:inputType="numberPassword"
-                    android:maxLength="4" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minWidth="20dp" />
-
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/card_type_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:orientation="vertical"
-                app:checkedButton="@id/card_type_debit"
-                app:selectionRequired="true"
-                app:singleSelection="true">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/card_type_debit"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:insetBottom="0dp"
-                    android:text="@string/form_card_type_debit"
-                    app:backgroundTint="@color/color_surface_variant"
-                    app:cornerRadius="16dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/card_type_credit"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
-                    android:insetTop="0dp"
-                    android:text="@string/form_card_type_credit"
-                    app:backgroundTint="@color/color_surface_variant"
-                    app:cornerRadius="16dp" />
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:text="Save as" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/card_label_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="name"
-                android:hint="@string/form_card_holder_card_label"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.chip.ChipGroup
+        <com.ps.eclip.views.ExpiryPickerView
+            android:id="@+id/expiry_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:visibility="gone"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cvv_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:minWidth="80dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="creditCardSecurityCode"
+                android:hint="@string/form_cvv_label"
+                android:inputType="numberPassword"
+                android:maxLength="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/card_type_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:orientation="vertical"
             app:checkedButton="@id/card_type_debit"
             app:selectionRequired="true"
             app:singleSelection="true">
 
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#D32F2F" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/card_type_debit"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:insetBottom="0dp"
+                android:text="@string/form_card_type_debit"
+                app:cornerRadius="16dp" />
 
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#7B1FA2" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/card_type_credit"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:insetTop="0dp"
+                android:text="@string/form_card_type_credit"
+                app:cornerRadius="16dp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#303F9F" />
-
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#1976D2" />
-
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#0097A7" />
-
-            <View
-                android:layout_width="@dimen/color_preview_size"
-                android:layout_height="@dimen/color_preview_size"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_rounded"
-                android:backgroundTint="#AFB42B" />
-        </com.google.android.material.chip.ChipGroup>
     </LinearLayout>
-</ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:text="Save as" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/card_label_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/form_card_holder_card_label"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        app:checkedButton="@id/card_type_debit"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#D32F2F" />
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#7B1FA2" />
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#303F9F" />
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#1976D2" />
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#0097A7" />
+
+        <View
+            android:layout_width="@dimen/color_preview_size"
+            android:layout_height="@dimen/color_preview_size"
+            android:layout_margin="8dp"
+            android:backgroundTint="#AFB42B" />
+    </com.google.android.material.chip.ChipGroup>
+</LinearLayout>

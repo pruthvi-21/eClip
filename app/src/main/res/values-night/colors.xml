@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">#9FA8DA</color>
-    <color name="color_secondary">#E6EE9C</color>
-    <color name="color_surface">#010101</color>
-    <color name="color_surface_variant">#181818</color>
-    <color name="status_bar_color">@color/color_surface_variant</color>
-
-    <color name="text_color_primary">#FFFFFF</color>
-    <color name="text_color_secondary">#BAC0C5</color>
-
     <color name="edit_text_line_color">#33ffffff</color>
 </resources>
